@@ -29,7 +29,7 @@
                     </thead>
                     <tbody>
 
-                        <tr v-for="(post,index) in posts" :key="post.id">
+                        <tr v-for="(post,index) in searchFilter" :key="post.id">
                             <td scope="row">{{ index+1 }}</td>
                             <td>{{ post.title }}</td>
                             <td>{{ post.body }}</td>
@@ -69,8 +69,12 @@ export default {
             page: 1,
         }
     },
-    props: {
-
+    computed: {
+        searchFilter(){
+            return this.posts.filter(post => {
+            return (post.title.match(this.searchWord))
+            });
+        }
     },
     setup() {
         const { posts, total, perPage,  getPosts, destroyPost } = usePost()
