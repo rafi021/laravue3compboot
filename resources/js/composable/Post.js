@@ -54,7 +54,11 @@ export default function usePost(){
     }
 
     const destroyPost = async (id) => {
+        if(!window.confirm('Are You Sure?')){
+            return
+        }
         await axios.delete(POST_URL+'/'+id)
+        await getPosts()
     }
 
     return{

@@ -35,7 +35,10 @@
                             <td>{{ post.body }}</td>
                             <td>{{ post.user.name }}</td>
                             <td>{{ post.updated_at }}</td>
-                            <td></td>
+                            <td>
+                                <router-link :to="{name: 'posts.edit', params: { id: post.id }}" class="btn btn-primary">Edit</router-link>
+                                <button @click="deletePost(post.id)" type="button" class="btn btn-danger">Delete</button>
+                            </td>
                         </tr>
                     </tbody>
                 </table>

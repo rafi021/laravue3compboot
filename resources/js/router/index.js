@@ -7,7 +7,7 @@ import PostEdit from '../pages/Posts/Edit.vue'
 const routes = [
     { path: '/posts', name: 'posts.index', component: PostIndex },
     { path: '/posts/create', name: 'posts.create', component: PostCreate },
-    { path: '/posts/:id/edit', name: 'posts.edit', component: PostEdit, props: true},
+    { path: '/posts/:id/edit', name: 'posts.edit', component: PostEdit, props: true },
 ];
 
 export default createRouter({

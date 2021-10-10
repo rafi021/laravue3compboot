@@ -7,7 +7,7 @@ use App\Http\Requests\PostStoreRequest;
 use App\Http\Requests\PostUpdateRequest;
 use App\Http\Resources\PostResource;
 use App\Models\Post;
-use Illuminate\Http\Request;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
@@ -33,8 +33,8 @@ class PostController extends Controller
         $post = Post::create([
             'title' => $request->title,
             'body' => $request->body,
-            'status' => $request->status,
-            'user_id' => Auth::id(),
+            'status' => true,
+            'user_id' => User::all()->random()->first()->id,
         ]);
 
         return new PostResource($post);
